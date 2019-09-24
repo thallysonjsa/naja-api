@@ -33,7 +33,7 @@ server.use('/products', productRoutes);
 server.use('/users', userRoutes);
 
 server.listen(3000, () => {
-    console.log("Oi!");
+    console.log("Oi, ta funcionando!");
 });
 
 module.exports = server;
