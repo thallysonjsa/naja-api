@@ -18,7 +18,7 @@ module.exports = {
             return res.json(user);
 
         } catch (err) {
-            return res.json({ error: "Erro ao criar usuario!" });
+            return res.json({ error: "Erro ao criar usuário!" });
         }
     }
     

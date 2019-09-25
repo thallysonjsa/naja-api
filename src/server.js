@@ -22,8 +22,12 @@ mongoose.connection.on('error', (err) => {
     console.log("Erro na conexão com o banco de dados: " + err);
 });
 
+mongoose.connection.on('connected', () => {
+    console.log('Conectado com o banco de dados!');
+})
+
 mongoose.connection.on('disconnected', () => {
-    console.log('Disconexão com o banco de dados!');
+    console.log('Disconectado com o banco de dados!');
 })
 
 server.use(express.json());
