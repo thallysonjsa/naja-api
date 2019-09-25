@@ -36,7 +36,8 @@ server.use(bodyParser.json());
 server.use('/products', productRoutes);
 server.use('/users', userRoutes);
 
-server.listen(3000, () => {
+let port = process.env.PORT || 3000;
+server.listen(port, () => {
     console.log("Oi, ta funcionando!");
 });
 
