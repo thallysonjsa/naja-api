@@ -4,7 +4,6 @@ const ProductSchema = new Schema({
     name: { 
         type: String, 
         required: true, 
-        lowercase: true
     },
     price: { 
         type: Number, 
@@ -12,6 +11,10 @@ const ProductSchema = new Schema({
     },
     quantity: { 
         type: Number, 
+        required: true
+    },
+    category: {
+        type: String,
         required: true
     },
     insertedAt: { 
