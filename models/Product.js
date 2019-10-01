@@ -15,7 +15,9 @@ const ProductSchema = new Schema({
     },
     category: {
         type: String,
-        required: true
+        enum: ['celular','eletrodomestico','tv','videogame'],
+        required: true,
+        lowercase: true
     },
     insertedAt: { 
         type: Date, 

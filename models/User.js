@@ -1,25 +1,20 @@
 const { Schema, model } = require('mongoose');
 
 const UserSchema = new Schema({
-    name: { 
-        type: String, 
-        required: true, 
-        lowercase: true
+  method: {
+    type: String,
+    enum: ['google'],
+    required: true
+  },
+  google: {
+    id: {
+      type: String
     },
-    email: { 
-        type: String, 
-        required: true, 
-        unique: true
-    },
-    password: { 
-        type: String, 
-        required: true, 
-        select: false 
-    },
-    insertedAt: { 
-        type: Date, 
-        default: Date.now
+    email: {
+      type: String,
+      lowercase: true
     }
+  }
 });
 
 module.exports = model('User', UserSchema);

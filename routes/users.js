@@ -1,10 +1,11 @@
 const express = require('express');
 const routes = express.Router();
-const UserService = require('../services/UserService');
+const controller = require('../controllers/UserController');
+const passport = require('passport');
+const passportConf = require('../passport');
+const passportGoogle = passport.authenticate('googleToken', { session: false });
 
-routes.get('/users', UserService.index);
-routes.post('/users', UserService.store);
-//routes.put('/users', UserService.update);
-//routes.delete('/users', UserService.remove);
+router.route('/oauth/google')
+  .post(passportGoogle, controller.googleOAuth);
 
 module.exports = routes;
