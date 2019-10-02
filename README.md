@@ -10,3 +10,4 @@ POST | /products/ | name, price, quantity, category |
 DELETE | /products/ | id | 
 PUT | /products/ | id, quantity | type
 GET | /products/search | | category
+POST | /oauth/google | access_token | |
