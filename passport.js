@@ -1,6 +1,6 @@
 const passport = require('passport');
 const GooglePlusTokenStrategy = require('passport-google-plus-token');
-const User = require('./models/user');
+const User = require('../naja-api/models/User');
 
 passport.use('googleToken', new GooglePlusTokenStrategy({
     clientID: '296627314306-n5v80i3gjk5tnjtqbdv3dh46po08qekp.apps.googleusercontent.com',
@@ -8,8 +8,22 @@ passport.use('googleToken', new GooglePlusTokenStrategy({
 }, async (accessToken, refreshToken, profile, done) => {
     try {
         const existingUser = await User.findOne({ "google.id": profile.id });
-    if (existingUser == null)
-        return done('error":"Não autorizado"')
+
+        if (existingUser) {
+            console.log('Ja existe, irmão');
+            return done(null, existingUser);
+        }
+
+        const newUser = new User({
+            method: 'google',
+            google: {
+              id: profile.id,
+              email: profile.emails[0].value
+            }
+          });
+    
+        await newUser.save();
+        done(null, newUser);
 
     } catch(error) {
         done(error, false, error.message);

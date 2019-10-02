@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 const productRoutes = require('./routes/product');
 const userRoutes = require('./routes/users')
@@ -27,7 +28,7 @@ mongoose.connection.on('connected', () => {
 })
 
 mongoose.connection.on('disconnected', () => {
-    console.log('Disconectado com o banco de dados!');
+    console.log('Desconectado com o banco de dados!');
 })
 
 server.use(express.json());
@@ -35,6 +36,14 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 server.use('/products', productRoutes);
 server.use('/users', userRoutes);
+server.use(cors());
+
+server.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+  });
 
 let port = process.env.PORT || 3000;
 server.listen(port, () => {
