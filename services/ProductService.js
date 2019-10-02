@@ -7,8 +7,8 @@ module.exports = {
         return products;
     },
 
-    async store(name, price, quantity, category) {
-        const product = await Product.create({name, price, quantity, category});
+    async store(name, price, quantity, category, image) {
+        const product = await Product.create({name, price, quantity, category, image});
         return product;
     },
 

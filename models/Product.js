@@ -19,6 +19,10 @@ const ProductSchema = new Schema({
         required: true,
         lowercase: true
     },
+    image: {
+        type: String,
+        required: false
+    },
     insertedAt: { 
         type: Date, 
         default: Date.now

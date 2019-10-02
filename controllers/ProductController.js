@@ -11,8 +11,8 @@ module.exports = {
 
     async store(req, res) {
        try {
-            const { name, price, quantity, category } = req.body
-            return res.json(await productService.store(name, price, quantity, category));
+            const { name, price, quantity, category, image } = req.body
+            return res.json(await productService.store(name, price, quantity, category, image));
         } catch (error) {
             return res.status(400).json({error: error.message});
         } 
