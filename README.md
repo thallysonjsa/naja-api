@@ -6,7 +6,7 @@
 Requisição| URL | Body | Params
 ----------|------|------|-----------
 GET | /products/ | |
-POST | /products/create | name, price, quantity, category |
-DELETE | /products/delete | id | 
-PUT | /products/update | id, quantity | type
+POST | /products/ | name, price, quantity, category |
+DELETE | /products/ | id | 
+PUT | /products/ | id, quantity | type
 GET | /products/search | | category
