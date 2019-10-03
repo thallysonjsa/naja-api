@@ -12,7 +12,8 @@ const UserSchema = new Schema({
     },
     email: {
       type: String,
-      lowercase: true
+      lowercase: true,
+      sparse: true
     }
   }
 });
