@@ -4,6 +4,8 @@ Esse repositório é destinado ao desenvolvimento da API do gerenciamento de est
 
 A abordagem utilizada no desenvolvimento dessa API, ou seja, o padrão do projeto, foi o MVC(Model, View, Controller). Nele, são definidos os modelos dos elementos que compõem a aplicação em estruturas chamadas Models. Todas as funcionalidades relacionadas a cada modelo, fica isolada em estruturas conhecidas como Services. Já a ligação entre as requisições HTTP e todo o sistema, fica restrito ao que conhecemos por Controllers, que é o responsável por criar uma ponte entre o cliente e o servidor.
 
+Em relação ao banco de dados utilizado, usamos uma estrutura de dados não relacional, optando pelo MongoDB, por ser um formato bastante escalável e flexível, o que facilita a manutenabilidade das estruturas dos elementos e permite um maior crescimento horizontal do banco de forma geral.
+
 <h2>Todas requisições são feitas nessa url: </h2>
 <p>https://najapp.herokuapp.com/</p>
 
